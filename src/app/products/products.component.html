@@ -1,0 +1,26 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sku Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Image</th>
+        <th scope="col">GST</th>
+        <th scope="col">Size</th>
+        <th scope="col">View</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+      <!-- <td class="text-left"> -->
+       <td>{{product.laoOrderId}}</td>                     <!---->
+        <td>{{product.retailerName}}</td>                  <!--These are to binded differently-->
+        <td>{{product.retailerMobile}}</td>
+        <td>{{product.outletName}}</td>
+        <td>{{product.products.name}}</td>
+        <td>{{product.products.totalPrice}}</td>
+        <td>{{product.lastUpdatedStatus}}</td>              <!---->
+      <!-- </td> -->
+  
+    </tbody>
+  </table>

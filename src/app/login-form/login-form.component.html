@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 overallCol">
+      <div class="card">
+        <div class="row">
+          <div class="content">
+            <img class="logoImg" src="../../assets/img/icon.png">
+          </div>
+        </div>
+          <form #login="ngForm">
+            <div class="row">
+              <!-- <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" [(ngModel)]="loginModule.mobile"
+                  name="username" placeholder="Username" required>
+                </div> -->
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label>Mobile Number</label><span class="star">*</span>
+                      <input type="tel" class="form-control" placeholder="Mobile Number"  oninput="this.value?this.value=this.value.replace(/(?![0-9])./gmi,''):''"
+                      pattern="[5-9]{1}[0-9]{9}" name="ContactNumber" #ContactNumber="ngModel"  minlength="10" maxlength="10" [(ngModel)]="mobile" required>
+                  </div>
+                  <div class="warning" *ngIf="ContactNumber.errors?.required && ContactNumber.touched">*{{'Mobile Number is required'}}</div>
+                  <div class="warning" *ngIf="ContactNumber.errors?.minlength">*{{'Mobile Number  should be 10 digits long'}}</div>
+                  <div class="warning" *ngIf="ContactNumber.errors?.pattern">*{{'Please enter valid mobile number'}}</div>
+              </div>
+
+                <!-- <div class="form-group">
+                  <input type="password" class="form-control" [(ngModel)]="loginModule.password"
+                    name="Password" placeholder="Password" required>
+                </div> -->
+              <!-- </div> -->
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+              <a><button type="submit"  [disabled]="login.invalid" class="btn btn-info btn-fill button"
+                  (click)="Login(mobile)">Login</button></a>
+              </div>
+              <!-- <div class="col-sm-6"> -->
+               
+                <!-- </div> -->
+            </div>
+            <div class="row">
+              <div class="col-sm-6 register">
+              <a class="register"  (click)="register()"  routerLinkActive='active'>Registration
+              </a>
+              </div>
+            </div>
+        
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->

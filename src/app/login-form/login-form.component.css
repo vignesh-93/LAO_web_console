@@ -1,0 +1,53 @@
+.card{
+    width: 40%;
+    height: 55%;
+    padding: 1em;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05),0 0 0 1px rgba(63,63,68,.1);
+    background-color: #ffffff;
+    margin: 10% auto;
+}
+.overallCol{
+    background-color: #053f0f;  
+    height: 46.95em;
+}
+.btn-info:disabled:hover {
+    border-color: #053f0f !important;
+}
+.logoImg{
+    width: 97%;
+    height: 90%;
+    margin: auto 147%;
+}
+.container-fluid{
+    height: 46.95em;
+}
+
+.col-md-6{
+    margin-left: 25%;
+}
+.button{
+    margin-left: 68%;
+    width: 70%;
+}
+
+.btn-info.btn-fill {
+    color: #FFFFFF;
+    background-color: #053f0f;
+    opacity: 1;
+   
+}
+
+.btn-info {
+    border-color: #053f0f;
+    color: #1DC7EA;
+}
+
+.register{
+    text-align: center;
+    margin-left: 24%;
+    margin-right: 24%;
+    font-size: 17px;
+    font-weight: 600;
+    color: #053f0f;
+
+}

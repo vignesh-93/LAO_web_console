@@ -1,0 +1,106 @@
+<div class="main-content" >
+    <div class="container-fluid overallCol"> 
+        <!-- <div class="card "> -->
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Registration</h4>
+                    </div>
+                    <div class="content">
+                        <form #registration="ngForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Shop Name</label><span class="star">*</span>
+                                        <input type="text" class="form-control"  [(ngModel)]="registrationModule.shopname" #ShopName="ngModel" name="ShopName"  placeholder="Shop name" required>
+                                    </div>
+                                    <div class="warning" *ngIf="ShopName.errors?.required && ShopName.touched">*{{'Shop name is required'}}</div>
+                                   
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Mobile Number</label><span class="star">*</span>
+                                        <input type="tel" class="form-control" placeholder="Mobile Number"  oninput="this.value?this.value=this.value.replace(/(?![0-9])./gmi,''):''"
+                                        pattern="[5-9]{1}[0-9]{9}" name="ContactNumber" #ContactNumber="ngModel"  minlength="10" maxlength="10" [(ngModel)]="registrationModule.mobile" required>
+                                    </div>
+                                    <div class="warning" *ngIf="ContactNumber.errors?.required && ContactNumber.touched">*{{'Mobile Number is required'}}</div>
+                                    <div class="warning" *ngIf="ContactNumber.errors?.minlength">*{{'Mobile Number  should be 10 digits long'}}</div>
+                                    <div class="warning" *ngIf="ContactNumber.errors?.pattern">*{{'Please enter valid mobile number'}}</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>First Name</label><span class="star">*</span>
+                                        <input type="text" name="Firstn" #Firstn="ngModel" [(ngModel)]="registrationModule.FirstName" class="form-control" placeholder="First Name" value="" required>
+                                    </div>
+                                    <div class="warning" *ngIf="Firstn.errors?.required && Firstn.touched">*{{'First Name  is required'}}</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" placeholder="Last Name"  name="Lastname" #Lastname="ngModel" [(ngModel)]="registrationModule.lastName" value="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Address 1</label><span class="star">*</span>
+                                        <input type="text" class="form-control"  name="Addr1" #Addr1="ngModel" [(ngModel)]="registrationModule.address1" placeholder="Address 1" value="" required>
+                                    </div>
+                                    <div class="warning" *ngIf="Addr1.errors?.required && Addr1.touched">*{{'Address 1 is required'}}</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Address 2</label>
+                                        <input type="text"   name="Addr2" #Addr2="ngModel" [(ngModel)]="registrationModule.address2" class="form-control" placeholder="Address 2" value="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Pin Code</label><span class="star">*</span>
+                                        <input  type="tel"  [(ngModel)]="registrationModule.pincode" #Zipcode="ngModel" name="Zipcode"
+                                        minlength="6" maxlength="6"  oninput="this.value?this.value=this.value.replace(/(?![0-9])./gmi,''):''" required class="form-control" placeholder="Pin Code">
+                                    </div>
+                                    <div class="warning" *ngIf="Zipcode.errors?.required && Zipcode.touched">*{{'Pincode is required'}}</div>
+                                    <div class="warning" *ngIf="Zipcode.errors?.minlength">*{{'Pincode  should be 6 digits long'}}</div>
+                                    <div class="warning" *ngIf="Zipcode.errors?.pattern">*{{'Please enter valid pincode'}}</div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>GST Number</label>
+                                        <input type="number"  name="GST" #GST="ngModel"  [(ngModel)]="registrationModule.gstno" class="form-control" placeholder="GST Number">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Aadhar Number</label>
+                                        <input type="number"  name="aadhar" #aadhar="ngModel"  [(ngModel)]="registrationModule.aadharno" class="form-control" placeholder="Aadhar Number">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="cancel" class="btn btn-info btn-fill pull-right" (click) ="reset(registrationModule)">Reset</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit"  [disabled]="registration.invalid" class="btn btn-info btn-fill pull-right" (click) ="Registration(registrationModule)">Submit</button>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+ </div>

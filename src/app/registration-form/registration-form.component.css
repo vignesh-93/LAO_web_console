@@ -1,0 +1,12 @@
+.card{
+    width: 75%;
+    height: auto;
+    padding: 1em;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05),0 0 0 1px rgba(63,63,68,.1);
+    background-color: #ffffff;
+    margin: 5% auto;
+}
+.overallCol{
+    background-color: #053f0f;  
+    height: auto;
+}
