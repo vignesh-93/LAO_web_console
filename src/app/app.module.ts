@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { DisplayFormComponent } from './display-form/display-form.component';
 
+
 import{FormsModule} from '@angular/forms';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';

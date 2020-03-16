@@ -23,6 +23,11 @@ export class FormsService {
   UpdateOrderStauts(data){
     console.log("test", data)
     return this.http.post(this.url + '/updateorderstatus', data); 
-}
+  }
+
+  viewSpecifiedOrderDetails(laoid){
+    console.log("test",laoid)
+    return this.http.get(this.url + '/getSpecifiedOrder?laoOrderId='+laoid);
+  }
 
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsService } from '../services/forms.service';
+import swal from 'sweetalert2';
 
 import { GlobalProvider } from '../GlobalProvider/global'
+import { error } from 'protractor';
 
 @Component({
   selector: 'app-orderdetails',
@@ -21,9 +23,7 @@ export class OrderdetailsComponent implements OnInit {
     this.orderValues = this.global.elements;
     console.log(this.orderValues, "orderValues")
     this.mobile = localStorage.getItem("mobile");
-
     this.getAllOrders();
-
   }
 
   getAllOrders() {
@@ -33,7 +33,6 @@ export class OrderdetailsComponent implements OnInit {
         this.orderValues = response["message"];
       });
   }
-
 
   orderStatusUpdate(product, orderStatus) {
     // console.log(orderStatus)
@@ -48,10 +47,23 @@ export class OrderdetailsComponent implements OnInit {
 
     this.services.UpdateOrderStauts(data).subscribe((response: any) => {
       if (response["code"] == 200) {
-        alert(response["message"]);
+        swal.fire(response["message"]);
         this.getAllOrders();
       } else {
-        alert("Please try after sometime");
+        swal.fire("Please try after sometime");
+      }
+    });
+  }
+
+  onSelect(order){
+    // console.log(order)
+    this.services.viewSpecifiedOrderDetails(order.laoOrderId).subscribe((response: any) => {
+      if (response["code"] == 200) {
+        // swal.fire(response);
+        this.getAllOrders();
+        console.log(response.message.products.name)
+      }else{
+        console.log("error")
       }
     });
   }

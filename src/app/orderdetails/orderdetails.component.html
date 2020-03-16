@@ -12,31 +12,17 @@
   </thead>
   <tbody>
     <tr *ngFor="let order of orderValues">
-    <!-- <td class="text-left"> -->
-     <td>{{order.laoOrderId}}</td> 
+        <td><li (click)="onSelect(order)">{{order.laoOrderId}}</li></td>
       <td>{{order.retailerName}}</td>
       <td>{{order.retailerMobile}}</td>
       <td>{{order.outletName}}</td>
       <td>{{order.products.name}}</td>
       <td>{{order.products.totalPrice}}</td>
-        <!-- <div class="row">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button ngbDropdownItem>Action - 1</button>
-                <button ngbDropdownItem>Another Action</button>
-                <button ngbDropdownItem>Something else is here</button>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <select (change)="orderStatusUpdate(order,$event.target.value)" [value] = "order.lastUpdatedStatus">
-          <option value="PLACED" disabled >PLACED</option>
-          <option value="COMPLETED" >COMPLETED</option>
-        </select>
-      <!-- <td>{{order.lastUpdatedStatus}}</td> -->
-    <!-- </td> -->
-</tr>
-  </tbody>
+      <select (change)="orderStatusUpdate(order,$event.target.value)" 
+      class="btn btn-primary dropdown-toggle" data-toggle="dropdown" [value]="order.lastUpdatedStatus">
+        <option value="PLACED" disabled>PLACED</option>
+        <option value="COMPLETED">COMPLETED</option>
+      </select>
+    </tr>
+  </tbody> 
 </table>
