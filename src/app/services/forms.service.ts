@@ -16,18 +16,23 @@ export class FormsService {
     return this.http.post(this.url + '/savewholesaler', bodyData);
   }
 
-  allWholesalerOrders(mobile){
-    return this.http.get(this.url + '/getallorders?mobile='+mobile);
+  allWholesalerOrders(mobile) {
+    return this.http.get(this.url + '/getallorders?mobile=' + mobile);
   }
 
-  UpdateOrderStauts(data){
+  //Update WholeSaler Order Status
+  //For Orderdetails-Component
+  UpdateOrderStauts(data) {
     console.log("test", data)
-    return this.http.post(this.url + '/updateorderstatus', data); 
+    return this.http.post(this.url + '/updateorderstatus', data);
   }
 
-  viewSpecifiedOrderDetails(laoid){
-    console.log("test",laoid)
-    return this.http.get(this.url + '/getSpecifiedOrder?laoOrderId='+laoid);
+  //Display Popup in Orders Screen
+  //For Orderdetails-Component
+  viewSpecifiedOrderDetails(laoid, productid) {
+    console.log("test", laoid)
+    console.log("test", productid)
+    return this.http.get(this.url + '/getSpecifiedOrder?laoOrderId=' + laoid + '&productid=' + productid);
   }
 
 }

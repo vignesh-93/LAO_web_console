@@ -17,6 +17,18 @@ export class OrderdetailsComponent implements OnInit {
   errorReg: any;
   mobile: any;
 
+  p:number=1;
+
+  productNameInpopup: any;
+  priceInpopup: any;
+  qtyInpopup: any;
+  totalPriceInpopup: any;
+  retailerName : any;
+  retailerOutletName : any;
+  retailerShopAddress : any;
+  sku : any;
+  CreatedOn  : any;
+  
   constructor(private services: FormsService, private global: GlobalProvider) { }
 
   ngOnInit(): void {
@@ -55,14 +67,24 @@ export class OrderdetailsComponent implements OnInit {
     });
   }
 
-  onSelect(order){
+  onSelect(order) {
     // console.log(order)
-    this.services.viewSpecifiedOrderDetails(order.laoOrderId).subscribe((response: any) => {
+    this.services.viewSpecifiedOrderDetails(order.laoOrderId,order.products._id).subscribe((response: any) => {
       if (response["code"] == 200) {
-        // swal.fire(response);
         this.getAllOrders();
-        console.log(response.message.products.name)
-      }else{
+        
+          // console.log(response.message[0])
+          this.retailerName = response.message[0].retailerName,
+          this.retailerOutletName = response.message[0].retailerOutletName,
+          this.retailerShopAddress = response.message[0].retailerShopAddress,
+          this.productNameInpopup =  response.message[0].products[0].name,
+          this.sku = response.message[0].products[0].sku,
+          this.CreatedOn = response.message[0].products[0].CreatedOn
+          this.priceInpopup =  response.message[0].products[0].price,
+          this.qtyInpopup =  response.message[0].products[0].qty,
+          this.totalPriceInpopup =  response.message[0].products[0].totalPrice
+
+      } else {
         console.log("error")
       }
     });

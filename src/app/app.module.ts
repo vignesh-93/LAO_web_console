@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { DisplayFormComponent } from './display-form/display-form.component';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import{FormsModule} from '@angular/forms';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
@@ -32,7 +34,9 @@ import { GlobalProvider } from './GlobalProvider/global';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   providers: [FormsService,GlobalProvider],
   bootstrap: [AppComponent]
