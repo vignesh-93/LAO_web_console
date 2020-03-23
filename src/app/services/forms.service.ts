@@ -35,4 +35,13 @@ export class FormsService {
     return this.http.get(this.url + '/getSpecifiedOrder?laoOrderId=' + laoid + '&productid=' + productid);
   }
 
+  getAllWholesalerProducts(mobile){
+    console.log("test",mobile);
+    return this.http.get(this.url + '/getallwholesalerproducts?page=1&languange=en'+'&mobile='+mobile)
+  }
+  updateWholesalerProducts(data){
+    console.log("test", data)
+    return this.http.post(this.url + '/updatewholesalerproduct', data);
+  }
+
 }

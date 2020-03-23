@@ -1,26 +1,151 @@
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Sku Id</th>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Image</th>
-        <th scope="col">GST</th>
-        <th scope="col">Size</th>
-        <th scope="col">View</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products">
-      <!-- <td class="text-left"> -->
-       <td>{{product.laoOrderId}}</td>                     <!---->
-        <td>{{product.retailerName}}</td>                  <!--These are to binded differently-->
-        <td>{{product.retailerMobile}}</td>
-        <td>{{product.outletName}}</td>
-        <td>{{product.products.name}}</td>
-        <td>{{product.products.totalPrice}}</td>
-        <td>{{product.lastUpdatedStatus}}</td>              <!---->
-      <!-- </td> -->
+<!-- <div class="searchcontainer">
+
+  <input type="tele" (keyup)="applyFilter($event.value)" placeholder="Filter"> -->
+    <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+ 
+<!-- </div> -->
+
+<app-sidebar></app-sidebar>
+
+<div class="row">
+  <input type="text" placeholder="search" [(ngModel)]="products.sku">
+
   
-    </tbody>
-  </table>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Sku Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Image</th>
+          <th scope="col">GST</th>
+          <th scope="col">Size</th>
+          <th scope="col">View</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products |filter:products.sku | paginate: { itemsPerPage: 5, currentPage:p }; let i=index">
+        <!-- <td class="text-left"> -->
+         <td>{{product.sku}}</td>                     <!---->
+          <td>{{product.name}}</td>                  <!--These are to binded differently-->
+          <td>{{product.price}}</td>
+          <td><img src="{{product.image}}" class="imageFrame"/></td>
+          <td>{{product.gst}}</td>
+          <td>{{product.size}}</td>
+          <td><i class="fa fa-eye" data-toggle="modal" data-target="#myModal" (click)="productDetails(product)" ></i></td>        
+        
+    </tr>
+      </tbody>
+    </table>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <!-- <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>  
+  
+    <div class="container">
+     
+      
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+          
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h5 class="modal-title">PRODUCTDETAILS</h5>
+            </div>
+            <div class="modal-body">
+              <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+     -->
+     
+     <form #userForm="ngForm">
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+          
+        <div class="modal-content">
+          <div class="modal-header">
+            
+            <h4 class="modal-title">Edit Product Details</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="row" >
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+                    <label>SKU ID</label>
+                </div>
+                <div class="col-sm-8">
+                   <input type="text" class="inputStyle" [(ngModel)]="productView.sku" name="sku" readonly/>
+                </div>       
+              </div>  
+              <div class="col-sm-6">
+                  <div class="col-sm-4">
+                      <label>Name</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="text" class="inputStyle" [(ngModel)]="productView.name" name="ordName" readonly/>
+                    </div>
+                </div>
+            </div><br>
+            <div class="row">
+              <div class="col-sm-6">
+                  <div class="col-sm-4">
+                      <label>Product Image</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <img src="{{productView.image}}" class="imageFrame"/>
+                  </div>
+                </div>
+              <div class="col-sm-6">
+                  <div class="col-sm-4">
+                      <label>Price</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input type="tele"  oninput="this.value?this.value=this.value.replace(/(?![0-9])./gmi,''):''"
+                    pattern="[5-9]{1}[0-9]{9}" class="inputStyle"  name="Price" #Price="ngModel"   minlength="1" 
+                    maxlength="5"[(ngModel)]="price"  required>
+                  </div>   
+                  <div class="warning" *ngIf="Price.errors?.required && Price.touched">*{{'Price Number is required'}}</div>
+                  <div class="warning" *ngIf="Price.errors?.minlength">*{{'Price Number  should be valid'}}</div>
+                </div>  
+              </div><br>
+              <div class="row">
+                  <div class="col-sm-6">
+                  <div class="col-sm-4">
+                      <label>GST</label>
+                  </div>
+                  <div class="col-sm-8">
+                     <input class="inputStyle"  [(ngModel)]="productView.gst" type="number" name="gst" readonly/>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-sm-4">
+                    <label>Size</label>
+                </div>
+                <div class="col-sm-8">
+                   <input class="inputStyle"  [(ngModel)]="productView.size" type="text" name="Size" readonly/>
+                </div>      
+                </div>  
+                </div><br>
+  
+          </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-info btn-fill button"  (click)="updateProductDetails(productView,price)" data-dismiss="modal">Update</button> 
+          <!-- <button type="submit" [disabled]="(userForm.Price.value.length === 0 || Price.value.length === '')" class="btn btn-default" (click)="updateProductDetails(productView)" data-dismiss="modal">update</button> -->
+          <button type="button" class="btn" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      </div>
+    </div> 
+     

@@ -1,4 +1,4 @@
-body {
+/* body {
     overflow-x: hidden;
   }
   
@@ -47,4 +47,183 @@ body {
     #wrapper.toggled #sidebar-wrapper {
       margin-left: -15rem;
     }
-  }
+  } */
+
+
+
+
+
+  
+  
+  
+/* The sidebar menu */
+.sidenav{
+  width: 15%;
+  float:left;
+  height:100vh;
+  background-color:#3c763d;
+}
+.main{
+  display: inline-block;
+  width: 85%;
+  height:100vh;
+  border: 1px solid lightgrey;
+}
+.position{
+  margin-left: 93%;
+  /* border-radius: 50%; */
+  margin-top: 5px;
+  background-color:#3c763d;
+  color: white;
+  height: 6%;
+    width: 6%;
+    font-size: medium;
+}
+.top{
+  height: 9%;
+  border: 1px solid lightgrey;
+}
+.logo{
+  display: inline;
+ 
+}
+.logoImg{
+  height: 30px;
+  width: 30px;
+  /* padding: 10px; */
+  margin-left: 55px;
+  margin-top: 5px;
+}
+.sidenav .i {
+  font-size: 28px;
+  float: left;
+  margin-right: 15px;
+  line-height: 30px;
+  width: 30px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.loatitle{
+  color: white;
+  /* font-weight: bold; */
+  display: inline-block;
+  margin-left: 15px;
+  margin-top: 15px;
+  font-size: medium;
+  font-weight: 400;
+  line-height: 1.5;
+  /* color: white; */
+  text-align: -webkit-center;
+  
+}
+.dash{
+  color: white;
+  /* font-weight: bold; */
+  /* display: inline-block;
+  margin-left: 25px;
+  margin-top: 30px;
+  font-size: 1rem;
+  font-weight: 400; */
+  line-height: 3.5;
+  /* color: white; */
+  text-align: -webkit-center;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: -20px!important;
+}
+.pro{
+  color: white;
+  /* font-weight: bold; */
+  /* display: inline-block;
+  margin-left: 25px;
+  margin-top: 30px;
+  font-size: 1rem;
+  font-weight: 400; */
+  line-height: 3.5;
+  /* color: white; */
+  text-align: -webkit-center;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: -30px!important;
+}
+.ord{
+  color: white;
+  /* font-weight: bold; */
+  /* display: inline-block;
+  margin-left: 25px;
+  margin-top: 30px;
+  font-size: 1rem;
+  font-weight: 400; */
+  line-height: 3.5;
+  /* margin-left: 25px; */
+  /* color: white; */
+  text-align: -webkit-center;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: -50px!important;
+}
+
+/* .sidenav{
+  height: 100%; 
+  width: 300px; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0; 
+  left: 0;
+  background-color: #053f0f; 
+  overflow-x: hidden;  */
+  /* padding-top: 20px; */
+  /* font-size: 20px;
+
+
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+} */
+.tinet{
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: white;
+  text-align: -webkit-center;
+  
+}
+.c{
+  color: #FFFFFF;
+  margin: 5px 15px;
+  opacity: .86;
+  border-radius: 4px;
+  display: block;
+  font-size: 20px!important;
+  font-weight: 600!important;
+  line-height: 2!important;
+}
+
+  /* .logo-img{
+      width: 25px;
+      /* height:15px; */
+      /* top: 10px;
+      position: absolute;
+      box-sizing: border-box; */
+       /* } */ */
+     .simple-text{  
+         text-transform: uppercase;
+  padding: 5px 0px 5px 15px;
+  display: block;
+  font-size: 18px;
+  color: #FFFFFF;
+  text-align: left;
+  font-weight: 400;
+  line-height: 30px;
+     }
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+

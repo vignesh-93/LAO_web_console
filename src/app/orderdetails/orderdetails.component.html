@@ -1,6 +1,10 @@
-<div>
-  <input type="text" placeholder="search" [(ngModel)]="orderValues.laoOrderId">
-</div>
+<app-sidebar></app-sidebar>
+
+<div class="row">
+<br><br>
+<input class="form-control" id="myInput" type="text" placeholder=" &#61442; Search by Order Id"
+  [(ngModel)]="orderValues.laoOrderId">
+<br><br>
 
 <table class="table">
   <thead>
@@ -33,7 +37,7 @@
     </tr>
   </tbody>
 </table>
-
+</div>
 
 <div class="modal" id="myModal">
   <div class="modal-dialog">
