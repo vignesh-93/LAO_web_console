@@ -55,4 +55,8 @@ export class RegistrationFormComponent implements OnInit {
     registrationModule = {};
   }
 
+  onClose(){
+    this.router.navigate(['login']);
+  }
+  
 }

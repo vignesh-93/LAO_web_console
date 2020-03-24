@@ -5,6 +5,9 @@
             <div class="col-md-12 ">
                 <div class="card">
                     <div class="header">
+                        <button type="button" (click)="onClose()" class="close" aria-label="Close" >
+                            <span aria-hidden="true" >×</span>
+                          </button>
                         <h4 class="title">Registration</h4>
                     </div>
                     <div class="content">
@@ -61,7 +64,26 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="row"> 
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>City Name</label><span class="star">*</span>
+                                    <input type="text" class="form-control"  [(ngModel)]="registrationModule.cityname" #CityName="ngModel" name="CityName"  placeholder="City name" required>
+                                </div>
+                                <div class="warning" *ngIf="CityName.errors?.required && CityName.touched">*{{'city name is required'}}</div>
+                               
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>State Name</label><span class="star">*</span>
+                                    <input type="text" class="form-control"  [(ngModel)]="registrationModule.statename" #StateName="ngModel" name="StateName"  placeholder="State name" required>
+                                </div>
+                                <div class="warning" *ngIf="StateName.errors?.required && StateName.touched">*{{'state name is required'}}</div>
+                               
+                            </div>
+                            
+                        </div>
+                        
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -75,21 +97,29 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>GST Number</label>
-                                        <input type="number"  name="GST" #GST="ngModel"  [(ngModel)]="registrationModule.gstno" class="form-control" placeholder="GST Number">
+                                        <label>GST Number</label><span class="star">*</span>
+                                        <input  type="tel"  [(ngModel)]="registrationModule.gst" #Gst="ngModel" name="Gst"
+                                        minlength="15" maxlength="15"  oninput="this.value?this.value=this.value.replace(/(?![0-9])./gmi,''):''" required class="form-control" placeholder="GST">
                                     </div>
+                                    <div class="warning" *ngIf="Gst.errors?.required && Gst.touched">*{{'Gst is required'}}</div>
+                                    <div class="warning" *ngIf="Gst.errors?.minlength">*{{'Gst  should be 15 digits long'}}</div>
+                                    <div class="warning" *ngIf="Gst.errors?.pattern">*{{'Please enter valid Gst'}}</div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Aadhar Number</label>
-                                        <input type="number"  name="aadhar" #aadhar="ngModel"  [(ngModel)]="registrationModule.aadharno" class="form-control" placeholder="Aadhar Number">
+                                        <label>Aadhar Number</label><span class="star">*</span>
+                                        <input  type="tel"  [(ngModel)]="registrationModule.aadhar" #Aadhar="ngModel" name="Aadhar"
+                                        minlength="12" maxlength="12"  oninput="this.value?this.value=this.value.replace(/(?![0-9])./gmi,''):''" required class="form-control" placeholder="aaadhar">
                                     </div>
+                                    <div class="warning" *ngIf="Aadhar.errors?.required && Aadhar.touched">*{{'Aadhar is required'}}</div>
+                                    <div class="warning" *ngIf="Aadhar.errors?.minlength">*{{'Aadhar  should be 15 digits long'}}</div>
+                                    <div class="warning" *ngIf="Aadhar.errors?.pattern">*{{'Please enter valid Aadhar'}}</div>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button type="cancel" class="btn btn-info btn-fill pull-right" (click) ="reset(registrationModule)">Reset</button>
+                                    <button type="reset" class="btn btn-info btn-fill pull-right" value="Reset">Reset</button>
                                 </div>
                                 <div class="col-md-2">
                                     <button type="submit"  [disabled]="registration.invalid" class="btn btn-info btn-fill pull-right" (click) ="Registration(registrationModule)">Submit</button>

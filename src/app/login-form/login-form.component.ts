@@ -36,7 +36,7 @@ export class LoginFormComponent implements OnInit {
         this.errorReg = false;
         localStorage.setItem('mobile',mobile);
        
-        this.router.navigate(['orders']);
+        this.router.navigate(['']);
       
         
       } else {
