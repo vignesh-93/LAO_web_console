@@ -13,16 +13,19 @@ const routes: Routes = [
   // {path:'',component:LoginFormComponent},
   { path: 'reg', component: RegistrationFormComponent },
   { path: 'login', component: LoginFormComponent },
-  { path: 'sidebar', component: SidebarComponent },
+  { path: 'sidebar', 
+  component: SidebarComponent,
+  canActivate: [ChatGuard]
+  },
   {
     path: 'orders',
     component: OrderdetailsComponent,
-    // canActivate: [ChatGuard]
+    canActivate: [ChatGuard]
   },
   {
     path: 'products',
     component: ProductsComponent,
-    // canActivate: [ChatGuard]
+    canActivate: [ChatGuard]
   },
   {
     path: '',

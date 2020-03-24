@@ -14,13 +14,4 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  onLogout(){
-   
-    localStorage.setItem('mobile',undefined);
-   
-    this.router.navigate(['login']);
-  
-  }
-
 }
