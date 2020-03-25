@@ -1,6 +1,6 @@
 <app-sidebar></app-sidebar>
 
-<div class="row">
+<div *ngIf="orderTable" class="row">
 <br><br>
 <input class="form-control" id="myInput" type="text" placeholder=" &#61442; Search by Order Id"
   [(ngModel)]="orderValues.laoOrderId">
@@ -37,6 +37,7 @@
     </tr>
   </tbody>
 </table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 
 <div class="modal" id="myModal">
@@ -146,5 +147,3 @@
     </div>
   </div>
 </div>
-
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
