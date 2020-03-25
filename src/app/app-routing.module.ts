@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChatGuard } from './nav-restrict/chat.guard';
 import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { ProductsComponent } from './products/products.component';
+import { RetailerVerificationComponent } from './retailer-verification/retailer-verification.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,11 @@ const routes: Routes = [
     path: '',
     component: DashboardComponent,
     canActivate: [ChatGuard]
+  },
+  {
+    path: 'verify',
+    component: RetailerVerificationComponent,
+    // canActivate: [ChatGuard]
   }
 ];
 

@@ -18,6 +18,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { ProductsComponent } from './products/products.component';
 import { GlobalProvider } from './GlobalProvider/global';
+import { RetailerVerificationComponent } from './retailer-verification/retailer-verification.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { GlobalProvider } from './GlobalProvider/global';
     DashboardComponent,
     SidebarComponent,
     OrderdetailsComponent,
-    ProductsComponent
+    ProductsComponent,
+    RetailerVerificationComponent
   ],
   imports: [
     BrowserModule,
