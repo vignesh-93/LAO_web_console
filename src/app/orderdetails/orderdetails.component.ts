@@ -33,7 +33,7 @@ export class OrderdetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.orderValues = this.global.elements;
-    console.log(this.orderValues, "orderValues")
+    // console.log(this.orderValues, "orderValues")
     this.mobile = localStorage.getItem("mobile");
     this.getAllOrders();
   }
@@ -42,7 +42,13 @@ export class OrderdetailsComponent implements OnInit {
     this.services
       .allWholesalerOrders(this.mobile)
       .subscribe((response: any) => {
+        // console.log(response,"res")
+        if(response.code == 200){
         this.orderValues = response["message"];
+        }else{
+          // console.log(response.message)
+          swal.fire(response.message);
+        }
       });
   }
 
