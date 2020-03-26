@@ -49,7 +49,7 @@ export class ProductsComponent implements OnInit {
   updateProductDetails(productView, price) {
     console.log(productView.price, price, "test");
 
-    if (price == "") {
+    if (price == "" || price == "0") {
       //  console.log(data.price);
       // this.router.navigate(['products']);
       Swal.fire('please enter the valid price');

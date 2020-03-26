@@ -86,12 +86,12 @@ export class OrderdetailsComponent implements OnInit {
         this.retailerName = response.message[0].retailerName,
           this.retailerOutletName = response.message[0].retailerOutletName,
           this.retailerShopAddress = response.message[0].retailerShopAddress,
-          this.productNameInpopup = response.message[0].products[0].name,
-          this.sku = response.message[0].products[0].sku,
-          this.CreatedOn = response.message[0].products[0].CreatedOn
-          this.priceInpopup = response.message[0].products[0].price,
-          this.qtyInpopup = response.message[0].products[0].qty,
-          this.totalPriceInpopup = response.message[0].products[0].totalPrice
+          this.productNameInpopup = response.message[0].products.name,
+          this.sku = response.message[0].products.sku,
+          this.CreatedOn = response.message[0].products.CreatedOn
+          this.priceInpopup = response.message[0].products.price,
+          this.qtyInpopup = response.message[0].products.qty,
+          this.totalPriceInpopup = response.message[0].products.totalPrice
 
       } else {
         console.log("error")
