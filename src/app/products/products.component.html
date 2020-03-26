@@ -7,7 +7,7 @@
 
 <app-sidebar></app-sidebar>
 
-<div class="row">
+<div *ngIf="productTable" class="row">
   <input type="text" class="form-control" placeholder="Search by skuId" [(ngModel)]="products.sku">
 
   <table class="table">
@@ -39,8 +39,11 @@
       </tr>
     </tbody>
   </table>
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
 </div>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
 <!-- <mat-form-field>
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>  

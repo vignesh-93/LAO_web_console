@@ -17,17 +17,29 @@ export class ProductsComponent implements OnInit {
   price: any;
   p: number = 1;
 
+  productTable: Boolean;
+
   constructor(public router: Router, private services: FormsService, private global: GlobalProvider) { }
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
   ngOnInit(): void {
     let mobile = localStorage.getItem("mobile");
     this.services.getAllWholesalerProducts(mobile).subscribe((response: any) => {
+      if (response.code == 200) {
+        this.productTable = true;
       this.products = response['message'];
       console.log(this.products);
+      }else {
+        console.log(response.message,"errrrrrrrrr")
+        this.productTable = false;
+        Swal.fire(response.message);
+      }
     });
   }
+
   productDetails(product) {
     console.log(product)
     this.productView = product
@@ -49,6 +61,7 @@ export class ProductsComponent implements OnInit {
         "sku": productView.sku,
         "price": price
       }
+
       this.services.updateWholesalerProducts(data).subscribe((response: any) => {
         console.log(response['code'])
         if (response['code'] == 200) {

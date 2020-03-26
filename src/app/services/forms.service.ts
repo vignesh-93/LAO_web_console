@@ -49,5 +49,5 @@ export class FormsService {
     console.log("test",email)
     return this.http.post(this.url + '/verifyRetaileremail', email);
   }
-
+ 
 }
