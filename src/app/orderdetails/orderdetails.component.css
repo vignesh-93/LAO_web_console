@@ -8,6 +8,8 @@ table {
     padding-bottom: 10px;
     line-height: 55px;
     color: #405065;
+    margin-top: 20px;
+    font-size: x-large;
 }
 
 th {
@@ -50,6 +52,7 @@ form {
     border-width: 2px;
     padding: 3px;
     border-color: rgb(53, 204, 103);
+    margin-top: 20px;
 }
 
 .form-control::placeholder {
