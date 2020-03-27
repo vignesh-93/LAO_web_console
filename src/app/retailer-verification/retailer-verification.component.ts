@@ -17,20 +17,21 @@ mail : any;
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
       this.mail = params['email'];
-      // console.log(this.mail,"data $$$$$$$$$$$$$$$$$"); 
+      console.log(this.mail,"data $$$$$$$$$$$$$$$$$"); 
+      // this.emailVerify(this.mail)
   });
     this.emailVerify(this.mail)
   }
 
   emailVerify(email) {
-    // console.log(email,"email")
+    console.log(email,"email")
     this.services.verifyRetailerEmail(email).subscribe((res: any) => {
-    // console.log(res)
+    console.log(res)
       if (res.code==200) {
-          // console.log("success")
-          // console.log(res.message)
+          console.log("success")
+          console.log(res.message)
       } else if(res.code == 400){
-      //  console.log("err",res.result)
+       console.log("err",res.result)
       }
     })
   }
